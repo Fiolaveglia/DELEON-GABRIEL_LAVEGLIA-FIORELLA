@@ -28,3 +28,5 @@ Invalid value "4" for parameter "parameterIndex" [90008-224]
 [2024-02-23 00:39:15] [ INFO ] [OdontologoDaoH2:85] Listado de odontólogos obtenido: [id=1, numeroMatricula=654, Nombre='Fiorella', Apellido='Laveglia, id=2, numeroMatricula=852, Nombre='Gabriel', Apellido='DeLeon, id=3, numeroMatricula=123, Nombre='Ramon', Apellido='Añón]
 [2024-02-23 00:39:15] [ INFO ] [OdontologoDaoMemoria:28] Odontólogo guardado: id=1, numeroMatricula=1234, Nombre='Carlos', Apellido='Pérez
 [2024-02-23 00:39:15] [ INFO ] [OdontologoDaoH2:42] Se ha logrado el registro del odontólogo: id=4, numeroMatricula=1234, Nombre='Carlos', Apellido='Pérez con éxito
+[2024-02-23 18:10:47] [ INFO ] [OdontologoDaoH2:85] Listado de odontólogos obtenido: [id=1, numeroMatricula=654, Nombre='Fiorella', Apellido='Laveglia, id=2, numeroMatricula=852, Nombre='Gabriel', Apellido='DeLeon, id=3, numeroMatricula=123, Nombre='Ramon', Apellido='Añón]
+[2024-02-23 18:10:47] [ INFO ] [OdontologoDaoMemoria:28] Odontólogo guardado: id=1, numeroMatricula=1234, Nombre='Carlos', Apellido='Pérez

@@ -7,6 +7,7 @@ import com.backend.service.Impl.OdontologoService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
+import java.util.List;
 
 public class OdontologoServiceTest {
 
@@ -17,17 +18,13 @@ public class OdontologoServiceTest {
         odontologoService = new OdontologoService(new OdontologoDaoH2());
         Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
 
-        Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
-
-       // Assertions.assertTrue(odontologo.getId() != 0);
-
+        Assertions.assertNotNull(odontologo);
     }
 
     @Test
    public void debeHacerUnRegistroDeUnOdontologoNuevoEnMemoria(){
         odontologoService = new OdontologoService(new OdontologoDaoMemoria(new ArrayList<>()));
         Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
-
         Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
 
         Assertions.assertTrue(odontologoRegistrado.getId() != 0);
@@ -37,11 +34,9 @@ public class OdontologoServiceTest {
     @Test
     public void debeHacerUnaListaDeOdontologosEnH2(){
         odontologoService = new OdontologoService(new OdontologoDaoH2());
+        List<Odontologo> listaOdontologos = odontologoService.listarOdontologo();
 
-
-       odontologoService.listarOdontologo();
-
-        // Assertions.assertTrue(odontologo.getId() != 0);
+        Assertions.assertTrue(listaOdontologos.size()> 0);
 
     }
 

@@ -9,7 +9,6 @@ public class Application {
         Connection connection = null;
         try {
             Class.forName("org.h2.Driver");
-            connection = DriverManager.getConnection("jdbc:h2:~/FioGabi;INIT=RUNSCRIPT FROM 'create.sql'", "sa", "sa");
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -20,7 +19,5 @@ public class Application {
                 ex.printStackTrace();
             }
         }
-
     }
-
 }
