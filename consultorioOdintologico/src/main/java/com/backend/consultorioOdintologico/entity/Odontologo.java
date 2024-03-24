@@ -1,4 +1,4 @@
-package com.backend.entity;
+package com.backend.consultorioOdintologico.entity;
 
 public class Odontologo {
 

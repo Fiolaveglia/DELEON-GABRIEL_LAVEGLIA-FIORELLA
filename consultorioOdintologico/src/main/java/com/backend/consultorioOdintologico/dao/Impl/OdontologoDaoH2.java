@@ -1,9 +1,10 @@
-package com.backend.dao.Impl;
+package com.backend.consultorioOdintologico.dao.Impl;
 
 import com.backend.dao.IDao;
 import com.backend.dbconnection.H2Connection;
 import com.backend.entity.Odontologo;
-import org.apache.log4j.Logger;
+import org.jboss.logging.Logger;
+
 
 import java.sql.*;
 import java.util.ArrayList;

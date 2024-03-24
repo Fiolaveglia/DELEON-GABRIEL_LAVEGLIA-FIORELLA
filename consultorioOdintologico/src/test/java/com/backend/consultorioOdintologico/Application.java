@@ -1,4 +1,4 @@
-package com.backend;
+package com.backend.consultorioOdintologico;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

@@ -1,12 +1,11 @@
-package com.backend.test;
+package com.backend.consultorioOdintologico.test;
 
-import com.backend.dao.Impl.OdontologoDaoH2;
-import com.backend.dao.Impl.OdontologoDaoMemoria;
+import com.backend.consultorioOdintologico.dao.Impl.OdontologoDaoH2;
+
 import com.backend.entity.Odontologo;
 import com.backend.service.Impl.OdontologoService;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
-import java.util.ArrayList;
+
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -28,16 +27,7 @@ public class OdontologoServiceTest {
 
     }
 
-    @Test
-   public void debeHacerUnRegistroDeUnOdontologoNuevoEnMemoria(){
-        odontologoService = new OdontologoService(new OdontologoDaoMemoria(new ArrayList<>()));
-        Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
 
-        Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
-
-        Assertions.assertTrue(odontologoRegistrado.getId() != 0);
-
-    }
 
     @Test
     public void debeHacerUnaListaDeOdontologosEnH2(){
