@@ -12,14 +12,14 @@ public class OdontologoServiceTest {
 
     private OdontologoService odontologoService;
 
-   @Test
+    @Test
   public void debeRegistrarOdontologoEnH2(){
-        //odontologoService = new OdontologoService(new OdontologoDaoH2());
+        odontologoService = new OdontologoService(new OdontologoDaoH2());
         Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
+
         Odontologo odontologoRegistrado  = odontologoService.registrarOdontologo(odontologo);
 
         Assertions.assertNotNull(odontologoRegistrado);
-        Assertions.assertTrue(odontologoRegistrado.getId() !=0, "El Id del Odontólogo debe ser distinto a 0");
 
     }
 

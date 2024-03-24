@@ -11,7 +11,7 @@ import java.util.List;
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 
-    private final Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
+    private Logger LOGGER = Logger.getLogger(OdontologoDaoH2.class);
 
     @Override
     public Odontologo registrar(Odontologo odontologo) {
@@ -29,14 +29,13 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             preparedStatement.setString(3, odontologo.getApellido());
             preparedStatement.execute();
 
-            ResultSet resultSet = preparedStatement.getGeneratedKeys();
             odontologoRegistrado = new Odontologo(odontologo.getNumeroMatricula(), odontologo.getNombre(), odontologo.getApellido());
 
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
 
             while (resultSet.next()) {
                 odontologoRegistrado.setId(resultSet.getInt("id"));
             }
-
 
             connection.commit();
             LOGGER.info("Se ha logrado el registro del odontólogo: " + odontologoRegistrado + " con éxito");
@@ -57,14 +56,16 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             }
         } finally {
             try {
-                connection.close();
+                if (connection != null) {
+                    connection.close();
+                }
             } catch (Exception ex) {
                 LOGGER.error("No se pudo cerrar la conexion: " + ex.getMessage());
             }
         }
-
         return odontologoRegistrado;
     }
+
 
 
 
@@ -92,7 +93,7 @@ public class OdontologoDaoH2 implements IDao<Odontologo> {
             try {
                 connection.close();
             } catch (Exception ex) {
-                LOGGER.error("Ocurrió un error al intentar cerrar la bdd. " + ex.getMessage());
+                LOGGER.error("Ocurrió un error al intentar cerrar la bd. " + ex.getMessage());
                 ex.printStackTrace();
             }
         }
