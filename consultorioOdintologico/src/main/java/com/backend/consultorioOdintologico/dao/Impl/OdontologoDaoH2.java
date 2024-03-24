@@ -2,7 +2,7 @@ package com.backend.consultorioOdintologico.dao.Impl;
 
 import com.backend.dao.IDao;
 import com.backend.dbconnection.H2Connection;
-import com.backend.entity.Odontologo;
+import com.backend.consultorioOdintologico.entity.Odontologo;
 import org.jboss.logging.Logger;
 
 

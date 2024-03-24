@@ -2,8 +2,8 @@ package com.backend.consultorioOdintologico.test;
 
 import com.backend.consultorioOdintologico.dao.Impl.OdontologoDaoH2;
 
-import com.backend.entity.Odontologo;
-import com.backend.service.Impl.OdontologoService;
+import com.backend.consultorioOdintologico.entity.Odontologo;
+import com.backend.consultorioOdintologico.service.Impl.OdontologoService;
 import org.junit.Test;
 
 import java.util.List;
