@@ -4,11 +4,14 @@ import com.backend.dao.IDao;
 import com.backend.dbconnection.H2Connection;
 import com.backend.consultorioOdintologico.entity.Odontologo;
 import org.jboss.logging.Logger;
+import org.springframework.stereotype.Component;
 
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
+@Component
 
 public class OdontologoDaoH2 implements IDao<Odontologo> {
 
