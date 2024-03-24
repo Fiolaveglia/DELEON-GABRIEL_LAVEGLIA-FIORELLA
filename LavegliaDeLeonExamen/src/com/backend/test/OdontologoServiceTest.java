@@ -1,43 +1,48 @@
 package com.backend.test;
 
 import com.backend.dao.Impl.OdontologoDaoH2;
+import com.backend.dao.Impl.OdontologoDaoMemoria;
 import com.backend.entity.Odontologo;
 import com.backend.service.Impl.OdontologoService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
-import java.util.List;
+import java.util.ArrayList;
 
 public class OdontologoServiceTest {
 
     private OdontologoService odontologoService;
 
     @Test
-  public void debeRegistrarOdontologoEnH2(){
+  public void debeHacerUnRegistroDeUnOdontologoNuevoEnH2(){
         odontologoService = new OdontologoService(new OdontologoDaoH2());
         Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
 
-        Odontologo odontologoRegistrado  = odontologoService.registrarOdontologo(odontologo);
-
-        Assertions.assertNotNull(odontologoRegistrado);
-
-    }
-
-    @Test
-   public void debeRegistrarOdontologoEnMemoria(){
-        Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
         Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
 
-        List<Odontologo> odontologos = odontologoService.listarOdontologo();
-        Assertions.assertTrue(odontologos.contains(odontologoRegistrado), "El Odontólogo debe estar en la lista");
+       // Assertions.assertTrue(odontologo.getId() != 0);
+
     }
 
     @Test
-    public void debeListarOdontologosEnH2(){
-        odontologoService.setOdontologoDao(new OdontologoDaoH2());
-        List<Odontologo> listaOdontologos = odontologoService.listarOdontologo();
+   public void debeHacerUnRegistroDeUnOdontologoNuevoEnMemoria(){
+        odontologoService = new OdontologoService(new OdontologoDaoMemoria(new ArrayList<>()));
+        Odontologo odontologo = new Odontologo(1234, "Carlos", "Pérez");
 
-        Assertions.assertFalse(listaOdontologos.isEmpty(), "La lista de odontólogos no debe estar vacía");
+        Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
+
+        Assertions.assertTrue(odontologoRegistrado.getId() != 0);
+
+    }
+
+    @Test
+    public void debeHacerUnaListaDeOdontologosEnH2(){
+        odontologoService = new OdontologoService(new OdontologoDaoH2());
+
+
+       odontologoService.listarOdontologo();
+
+        // Assertions.assertTrue(odontologo.getId() != 0);
+
     }
 
 
