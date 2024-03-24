@@ -7,6 +7,9 @@ import com.backend.service.Impl.OdontologoService;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 public class OdontologoServiceTest {
 
@@ -20,6 +23,8 @@ public class OdontologoServiceTest {
         Odontologo odontologoRegistrado = odontologoService.registrarOdontologo(odontologo);
 
        // Assertions.assertTrue(odontologo.getId() != 0);
+        assertNotNull(odontologoRegistrado);
+        assertNotEquals(0, odontologoRegistrado.getId());
 
     }
 
@@ -42,6 +47,10 @@ public class OdontologoServiceTest {
        odontologoService.listarOdontologo();
 
         // Assertions.assertTrue(odontologo.getId() != 0);
+        List<Odontologo> odontologos = odontologoService.listarOdontologo();
+
+        assertNotNull(odontologos);
+        assertFalse(odontologos.isEmpty());
 
     }
 
