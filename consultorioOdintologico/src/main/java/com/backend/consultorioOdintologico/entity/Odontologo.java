@@ -1,64 +1,64 @@
 package com.backend.consultorioOdintologico.entity;
 
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "ODONTOLOGOS")
 public class Odontologo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    private int id;
-    private int numeroMatricula;
-    private String Nombre;
-    private String Apellido;
+    @Column(length = 50)
+    private String matricula;
+    @Column(length = 50)
+    private String nombre;
+    @Column(length = 50)
+    private String apellido;
 
-    public Odontologo(int id, int numeroMatricula, String nombre, String apellido) {
+
+    public Odontologo() {
+    }
+
+    public Odontologo(Long id, String matricula, String nombre, String apellido) {
         this.id = id;
-        this.numeroMatricula = numeroMatricula;
-        Nombre = nombre;
-        Apellido = apellido;
+        this.matricula = matricula;
+        this.nombre = nombre;
+        this.apellido = apellido;
     }
 
-    public Odontologo(int numeroMatricula, String nombre, String apellido) {
-        this.numeroMatricula = numeroMatricula;
-        Nombre = nombre;
-        Apellido = apellido;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public int getNumeroMatricula() {
-        return numeroMatricula;
+    public String getMatricula() {
+        return matricula;
     }
 
-    public void setNumeroMatricula(int numeroMatricula) {
-        this.numeroMatricula = numeroMatricula;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public String getNombre() {
-        return Nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-        Nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getApellido() {
-        return Apellido;
+        return apellido;
     }
 
     public void setApellido(String apellido) {
-        Apellido = apellido;
+        this.apellido = apellido;
     }
 
-    @Override
-    public String toString() {
-        return
-                "id=" + id +
-                ", numeroMatricula=" + numeroMatricula +
-                ", Nombre='" + Nombre + '\'' +
-                ", Apellido='" + Apellido;
-    }
+
 }
-
